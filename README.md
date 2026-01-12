@@ -57,7 +57,7 @@ Ce projet est le **sixième** du défi personnel **100 projets en 2026**.
 
 ---
 
-## 🔮 Améliorations possibles
+## Améliorations possibles
 - Catégories de produits
 - Tri automatique
 - Mode sombre
@@ -65,11 +65,5 @@ Ce projet est le **sixième** du défi personnel **100 projets en 2026**.
 
 ---
 
-## 🏁 Statut du projet
-✅ **Projet terminé**
-
----
-
-## 🚀 À propos du défi
-Ce projet fait partie du défi **100 projets en 2026**, visant à développer progressivement des applications jusqu’à une application finale startup-ready.
-
+## Statut du projet
+ **Projet terminé**
