@@ -7,10 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let items = JSON.parse(localStorage.getItem('shoppingList')) || [];
     
-    // Initial render
     renderItems();
     
-    // Add new item
     function addItem() {
         const text = itemInput.value.trim();
         if (text !== '') {
@@ -26,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // Toggle item completion
     function toggleComplete(id) {
         items = items.map(item => 
             item.id === id ? { ...item, completed: !item.completed } : item
@@ -34,13 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
         saveAndRender();
     }
     
-    // Delete item
     function deleteItem(id) {
         items = items.filter(item => item.id !== id);
         saveAndRender();
     }
     
-    // Clear all items
     function clearAllItems() {
         if (items.length > 0 && confirm('Êtes-vous sûr de vouloir supprimer tous les articles ?')) {
             items = [];
@@ -48,14 +43,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // Save to localStorage and re-render
     function saveAndRender() {
         localStorage.setItem('shoppingList', JSON.stringify(items));
         renderItems();
         updateItemCount();
     }
     
-    // Render all items
     function renderItems() {
         if (items.length === 0) {
             shoppingList.innerHTML = `
@@ -76,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
             </li>
         `).join('');
         
-        // Add event listeners to new elements
         document.querySelectorAll('.checkbox').forEach(checkbox => {
             checkbox.addEventListener('change', (e) => {
                 const id = parseInt(e.target.closest('li').dataset.id);
@@ -92,7 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // Update item count
     function updateItemCount() {
         const total = items.length;
         const completed = items.filter(item => item.completed).length;
@@ -108,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // Helper function to escape HTML
     function escapeHtml(unsafe) {
         return unsafe
             .replace(/&/g, "&amp;")
@@ -118,7 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
             .replace(/'/g, "&#039;");
     }
     
-    // Event Listeners
     addButton.addEventListener('click', addItem);
     
     itemInput.addEventListener('keypress', (e) => {
@@ -129,6 +118,5 @@ document.addEventListener('DOMContentLoaded', () => {
     
     clearAllButton.addEventListener('click', clearAllItems);
     
-    // Initial count update
     updateItemCount();
 });
